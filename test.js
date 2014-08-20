@@ -502,4 +502,13 @@ describe('ssdb', function(){
       done();
     })();
   });
+    it('get a chinese value', function(done){
+      co(function* (){
+        var key = uk();
+        var a = yield client.set(key, '中文测试');
+        var b = yield client.get(key);
+        should(b).eql('中文测试');
+        done();
+      })();
+    });
 });
