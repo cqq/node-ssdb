@@ -52,7 +52,7 @@ describe('ssdb', function(){
       var ttl = yield client.ttl(key);
       yield sleep(1201);
       var b = yield client.exists(key);
-      should(d).eql(1)
+      should(d).eql(1);
       should(ttl).below(1.2);
       should(b).be.false;
       done();
@@ -262,7 +262,7 @@ describe('ssdb', function(){
       var b = yield client.hget(hash, field);
       var c = yield client.hdel(hash, field);
       var d = yield client.hincr(hash, field, 3);
-      var e = yield client.hexists(hash, field)
+      var e = yield client.hexists(hash, field);
       should([a, b, c, d, e]).eql([1, 'v', 1, 3, true]);
       done();
     })();
@@ -428,7 +428,7 @@ describe('ssdb', function(){
       var results = [];
 
       for (var i = 0; i < 10; i++) {
-        var key = uk()
+        var key = uk();
         keys.push(key);
         results.push(client.zset(z, key, i + 100));
       }
@@ -482,8 +482,8 @@ describe('ssdb', function(){
       var start = uk('q');
       var a = uk('q');
       var b = uk('q');
-      yield client.qpush(a, 1)
-      yield client.qpush(b, 1)
+      yield client.qpush(a, 1);
+      yield client.qpush(b, 1);
       var lst = yield client.qlist(start, uk('q'), -1);
       var rlst = yield client.qrlist(uk('q'), start, -1);
       should(lst).eql([a, b]);
