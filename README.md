@@ -163,6 +163,13 @@ SSDB API Documentation
 
 Detail docs for ssdb interfaces can be found at: https://github.com/hit9/ssdb.api.docs
 
+Questions
+---------
+
+1. Where is the pipline?
+
+Nodejs has async IO, it pipelines by defaul.  [issue#13](https://github.com/eleme/node-ssdb/issues/13)
+
 License
 -------
 
